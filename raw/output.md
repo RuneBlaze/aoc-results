@@ -122,3 +122,26 @@ at least half of the clusters will be bloated to size $\geq 10001$ post AOC.
 | not_tree+size_ge_11 | True        |          128 |       13454271 | -             | -                           |                 3.8 |                18   | 3.4E-07, 1.1E-05, 7.4E-03 | 1.0E+01, 1.6E+01, 5.3E+01 | 1.0E+00, 1.0E+00, 1.8E+01 | -     | 1.4E+01, 8.0E+01, 2.9E+05 | 4.6E+00, 1.2E+01, 4.8E+01 | 1.9E-04, 3.4E-01, 8.8E-01 |
 | only_tree           | False       |            0 |       13989436 | 0.0           | 0.0E+00, 0.0E+00, 0.0E+00   |                 0   |                 0   | 0.0E+00, 0.0E+00, 0.0E+00 | 0.0E+00, 0.0E+00, 0.0E+00 | -                         | -     | 0.0E+00, 0.0E+00, 0.0E+00 | 0.0E+00, 0.0E+00, 0.0E+00 | 0.0E+00, 0.0E+00, 0.0E+00 |
 | only_tree           | True        |            0 |       13989436 | -             | -                           |                 0   |                 0   | 0.0E+00, 0.0E+00, 0.0E+00 | 0.0E+00, 0.0E+00, 0.0E+00 | 0.0E+00, 0.0E+00, 0.0E+00 | -     | 0.0E+00, 0.0E+00, 0.0E+00 | 0.0E+00, 0.0E+00, 0.0E+00 | 0.0E+00, 0.0E+00, 0.0E+00 |
+
+
+## Observations
+
+### Across different optimization problems / clustering criteria pre-AOC
+
+ - Leiden+CPM produced many more clusters compared to modularity-based clustering and IKC
+ - Leiden+Modularity surprisingly covered all nodes (100%!), IKC having the worst coverage. Leiden+CPM, even restricted to clusters having size >= 11 and not trees, still achieved substantially better coverage than IKC
+ - Leiden+Modularity and Leiden+CPM have little guarantee for MCD and treeness, as expected
+
+### Pre-AOC vs Post-AOC
+
+ - With $r < 0.1$, Leiden+CPM augments very well. Notably, at $r = 0.0001$, the median size of the clusters *drastically* increased. With $r = 0.1$, Leiden+CPM did not augment at all.
+ - Leiden+Modularity augments very well (median # of clusters per node very high). This seems actually problematic
+ - IKC did not augment that well, but this is AOC_m, and from the original AOC paper we know that AOC_m is quite strict
+ - For Leiden+CPM, modularity sometimes decreases post-AOC, sometimes increases post-AOC, dependent on $r$
+ - AOC does not seem to decrease # of trees by a lot in general
+ - AOC does not seem to decrease # of singletons by a lot in general
+
+### Post-AOC comparisons
+
+ - Leiden+modularity+AOC is extremely overlapping. The median clusters per node post-AOC is comparatively very large. Leiden+CPM+AOC is overlapping, but the median clusters per node is still small (very often $1$)
+ - Except for Leiden+CPM $r = 0.1$, most clusters did augment once considering those that are eligible (size >= 11).
