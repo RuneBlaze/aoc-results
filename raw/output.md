@@ -19,7 +19,7 @@ Also see the [resolution limit statement](#a-resolution-limit-statement-for-aoc-
    - `only_tree`: those that are trees
    - `A+B`: both `A` and `B` applied
  - `augmented`: post-AOC (true) or pre-AOC
- - `# singletons`: for `variant = all`, the true number of singletons. All other rows have no obvious meaning
+ - `# singletons`: for `variant = all`, the true number of singletons. All other `# singletons` in the other rows have no obvious meaning
  - `Deviation from treeness`: `(m - n + 1 ) / n`
 
 Distributions are written in minimum, median, maximum format.
