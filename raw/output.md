@@ -28,14 +28,14 @@ Distributions are written in minimum, median, maximum format.
 
 Assume $G = (V, E)$ as the background network. Assume $G$ is connected. Consider a cluster $K_i$ to be augmented
 by AOC using the CPM criterion, with resolution value $\gamma$ for AOC (the original clustering can be arbitrary).
-Let $n$ be the number of nodes in $K_i$ and $m$ the number of edges in $K_i$. Assume $n \ll |V|$.
+Let $n$ be the number of nodes in $K_i$ and $m$ the number of edges in $K_i$. Assume $n < 10^5$ and $|V| > 10^5$. Note that $K_i$ is extremely arbitrary -- we so far imposed few constraints on $K_i$. We now show that $K_i$ post AOC has an arguably undesirable size lower-bound.
 
 > **Theorem**: if $\gamma = 0.01$, $K_i$ after AOC augmentation will have size $\geq 101$. That is, clusters below size $101$
-> will never be detected by AOC. (Similarly, if $\gamma = 0.0001$, $K_i$ after AOC augmentation will have size $\geq 10001$ **(!)**)
+> will never be detected by AOC. Moreover, if $\gamma = 0.0001$, $K_i$ after AOC augmentation will have size $\geq 10001$ **(!)**.
 
 Proof omitted due to time constraints. Note that when $\gamma = 0.0001$, $K_i$ drawn from the CPM+Leiden cluster
 distributions on CEN before AOC has median size 380. That is,
-at least half of the clusters will be bloated to size $\geq 10001$.
+at least half of the clusters will be bloated to size $\geq 10001$ post AOC.
 
 
 ## Tables for `cen.tsv.leiden_cpm_0.1`
