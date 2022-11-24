@@ -28,7 +28,6 @@ Also see the [resolution limit statement](#a-resolution-limit-statement-for-aoc-
    - `only_tree`: those that are trees, now including all singletons
    - `A+B`: both `A` and `B` applied
  - `augmented`: post-AOC (true) or pre-AOC
- - `# singletons`: for `variant = all`, the true number of singletons. All other `# singletons` in the other rows have no obvious meaning
  - `Deviation from treeness`: `(m - n + 1 ) / n`
  - `% Non-singletons Augmented post-AOC`: percentage of *non-singleton* clusters that were augmented post-AOC of the shown pre-AOC clusters
  - `Relative Increase in Size post-AOC`: distribution of `new_size/old_size - 1` for non-singleton clusters
