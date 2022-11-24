@@ -1,3 +1,12 @@
+## Basic statistics of the CEN
+
+```python
+>>> from belinda import *
+>>> g = Graph("cen.bincode.lz4")
+>>> print(g)
+Graph(n=13989436, m=92051051) #  n = 13989436, m = 92051051
+```
+
 ## Links for Various Results
 
  - AOC+Leiden(CPM) on CEN
@@ -22,7 +31,7 @@ Also see the [resolution limit statement](#a-resolution-limit-statement-for-aoc-
  - `# singletons`: for `variant = all`, the true number of singletons. All other `# singletons` in the other rows have no obvious meaning
  - `Deviation from treeness`: `(m - n + 1 ) / n`
  - `% Non-singletons Augmented post-AOC`: percentage of *non-singleton* clusters that were augmented post-AOC of the shown pre-AOC clusters
- - `Relative Increase in Size post-AOC`: distribution of `new_size/old_size - 1`
+ - `Relative Increase in Size post-AOC`: distribution of `new_size/old_size - 1` for non-singleton clusters
 
 Distributions are written in minimum, median, maximum format.
 
@@ -125,6 +134,12 @@ A stronger form of the above statement:
 | not_tree+size_ge_11 | True        |          161 |              0 | -             | -                           |               100   |               100   | 1.5E-07, 1.6E-05, 6.7E-02 | 1.0E+00, 1.0E+00, 1.0E+00 | 1.0E+00, 1.6E+02, 1.6E+02 | -     | 1.2E+01, 1.4E+07, 1.4E+07 | 2.5E-01, 5.6E+00, 6.3E+00 | 9.4E-07, 9.4E-07, 2.1E-01 |
 | only_tree           | False       |          201 |              0 | 52.2          | 0.0E+00, 8.2E+04, 1.2E+06   |                 0.1 |                 0   | 1.1E-08, 2.1E-07, 1.1E-05 | 1.0E+00, 1.0E+00, 1.0E+00 | -                         | -     | 2.0E+00, 2.0E+01, 1.1E+03 | 0.0E+00, 0.0E+00, 0.0E+00 | 1.9E-03, 1.0E-01, 1.0E+00 |
 | only_tree           | True        |           96 |              0 | -             | -                           |                 0   |                 0   | 1.1E-08, 6.0E-08, 6.1E-07 | 1.0E+00, 1.0E+00, 1.0E+00 | 1.0E+00, 1.0E+00, 1.0E+00 | -     | 2.0E+00, 6.5E+00, 5.7E+01 | 0.0E+00, 0.0E+00, 0.0E+00 | 3.5E-02, 3.1E-01, 1.0E+00 |
+
+Sizes of the top 30 post-AOC clusters by size:
+```json
+13987937, 13987938, 13987939, 13987945, 13987945, 13987946, 13987951, 13987960, 13987964, 13987969, 13987975, 13987978, 13987982, 13987983, 13987985, 13987989, 13987990, 13987992, 13987993, 13987993, 13987996, 13987997, 13988000, 13988007, 13988012, 13988017, 13988019, 13988022, 13988022, 13988024, 13988031, 13988032, 13988034, 13988042, 13988043, 13988049, 13988050, 13988059, 13988060, 13988069, 13988069, 13988081, 13988081, 13988083, 13988087, 13988091, 13988105, 13988113, 13988120, 13988157
+```
+
 ## Tables for `cen.tsv.ikc10_cleaned`
 
 | Variant             | Augmented   |   # Non-singleton Clusters |   # Singletons | % Non-singletons Augmented post-AOC   | Relative Increase in Size post-AOC   |   Node Coverage (%) |   Edge Coverage (%) | Modularity                   | MCD                       | Clusters Per Node         | CPM   | Size                      | Deviation from Treeness   | Density                   |
